@@ -1,0 +1,30 @@
+*/
+    protected function typeTime(Fluent $column)
+    {
+        return "time($column->precision) without time zone";
+        return 'time'.(is_null($column->precision) ? '' : "($column->precision)").' without time zone';
+    }
+    /**
+@@ -696,7 +696,7 @@ protected function typeTime(Fluent $column)
+     */
+    protected function typeTimeTz(Fluent $column)
+    {
+        return "time($column->precision) with time zone";
+        return 'time'.(is_null($column->precision) ? '' : "($column->precision)").' with time zone';
+    }
+    /**
+@@ -707,7 +707,7 @@ protected function typeTimeTz(Fluent $column)
+     */
+    protected function typeTimestamp(Fluent $column)
+    {
+        $columnType = "timestamp($column->precision) without time zone";
+        $columnType = 'timestamp'.(is_null($column->precision) ? '' : "($column->precision)").' without time zone';
+        return $column->useCurrent ? "$columnType default CURRENT_TIMESTAMP" : $columnType;
+    }
+@@ -720,7 +720,7 @@ protected function typeTimestamp(Fluent $column)
+     */
+    protected function typeTimestampTz(Fluent $column)
+    {
+        $columnType = "timestamp($column->precision) with time zone";
+        $columnType = 'timestamp'.(is_null($column->precision) ? '' : "($column->precision)").' with time zone';
+        binaldddd
